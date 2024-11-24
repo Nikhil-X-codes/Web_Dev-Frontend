@@ -1,0 +1,8 @@
+This project is a responsive gym website named FitLife Gym, designed to showcase the services, membership plans, events, and contact options for the gym. 
+
+Technologies Used-
+
+1-> HTML5: For semantic and structured content.
+2-> CSS3: For design and responsiveness, including the use of external Font Awesome for icons.
+3-> Font Awesome: For social media and other icons.
+4-> Responsive Design Techniques: Media queries ensure the website is optimized for all screen sizes.

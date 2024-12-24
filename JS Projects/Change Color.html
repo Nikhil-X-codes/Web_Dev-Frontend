@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+      .box{
+        width: 100px;
+        height: 100px;
+        color: white;
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        border: 2px solid black;
+      }
+
+ #head{
+   text-align: center;
+   padding-top: 10%;
+ }
+      .cont{
+        display: flex; 
+            gap: 20px; 
+            justify-content: center;
+      }
+
+      .box:nth-child(1) {
+            background-color: blue;
+        }
+        .box:nth-child(2) {
+            background-color: red;
+        }
+        .box:nth-child(3) {
+            background-color: grey;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="cont">
+      
+        <div class="box">blue</div>
+        <div class="box">red</div>
+        <div class="box">grey</div>
+         
+    </div>
+
+    <h1 id="head">change the colour by click on boxes as above</h1>
+</body>
+
+<script>
+
+    const colour=document.querySelectorAll(".box");
+
+    colour.forEach(function (para) {
+        para.addEventListener('click',function(){
+ 
+            const text = para.textContent.toLowerCase();
+
+            if (text === "blue") {
+                    document.body.style.background = "blue";
+                } else if (text === "red") {
+                    document.body.style.background = "red";
+                } else if (text === "grey") {
+                    document.body.style.background = "grey";
+                }
+        });
+    });
+
+</script>
+</html>

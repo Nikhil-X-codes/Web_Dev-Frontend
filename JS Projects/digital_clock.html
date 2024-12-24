@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+        }
+        .colon {
+            font-size: 24px;
+            margin: 0 10px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    
+    <h1 style="text-align: center;">Local Time</h1>
+    <div class="container">
+        <div class="box"> </div>
+        <div class="colon">:</div>
+        <div class="box"> </div>
+        <div class="colon">:</div>
+        <div class="box"> </div>
+    </div>
+
+    <script>
+
+        const boxes = document.querySelectorAll('.box');
+
+        function updateClock() {
+
+            const time = new Date();
+            const hours = time.getHours();
+            const minutes = time.getMinutes();
+            const seconds = time.getSeconds();
+
+            const timeArray = [hours, minutes, seconds];
+
+            boxes.forEach((box, index) => {
+                box.textContent = timeArray[index];
+            });
+        }
+
+        setInterval(updateClock, 1000);
+
+
+    </script>
+</body>
+</html>

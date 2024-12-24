@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .head {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cont {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            border: 2px solid black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .cont input {
+            padding: 5px;
+            margin-left: 10px;
+            width: 100px;
+        }
+
+        .input-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .info {
+            text-align: center;
+            border: 2px solid black;
+            width: 250px;
+            height: auto;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .info-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .info-res {
+            margin-top: 20px;
+            width: 250px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+            text-align: center;
+            padding: 10px;
+        }
+
+        #bmi-result {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="head">BMI CONVERTOR</h1>
+
+    <div class="cont">
+        <div class="input-row">
+            <label for="height">Height (in m):</label>
+            <input type="text" id="height">
+        </div>
+        <div class="input-row">
+            <label for="weight">Weight (in kg):</label>
+            <input type="text" id="weight">
+        </div>
+        <button class="btn" id="calculate-btn">Calculate</button>
+    </div>
+
+    <div class="info-res">
+        <div class="info" id="bmi-result">
+            <h2>Your BMI</h2>
+            <p id="result">Enter values above</p>
+        </div>
+    </div>
+
+    <div class="info-container">
+        <div class="info">
+            <h2>BMI Information</h2>
+            <p>Underweight: BMI < 18.5</p>
+            <p>Normal weight: BMI 18.5–24.9</p>
+            <p>Overweight: BMI 25–29.9</p>
+            <p>Obesity: BMI 30 or greater</p>
+        </div>
+    </div>
+
+    <script>
+        const calculateButton = document.getElementById("calculate-btn");
+        const resultElement = document.getElementById("result");
+
+
+        calculateButton.addEventListener("click", function () {
+         
+            const height = parseFloat(document.getElementById("height").value);
+            const weight = parseFloat(document.getElementById("weight").value);
+
+            const bmi = (weight / ((height * height)/10000)).toFixed(2) ;
+  
+            resultElement.textContent = `Your BMI is ${bmi}`;
+        });
+    </script>
+</body>
+</html>

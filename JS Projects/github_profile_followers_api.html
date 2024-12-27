@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         
+         .layout-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; 
+            margin-top: 20px;
+        }
+
+        .square-container {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            position: relative;
+            border: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .follower {
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .show-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+          
+    </style>
+</head>
+<body>
+    <div class="layout-container">
+
+        <div class="square-container">
+
+           
+        </div>
+
+        <div class="follower">
+            <h2>Followers-</h2>
+        </div>
+
+        <button class="show-button">Show</button>
+    </div>
+
+</body>
+
+<script>
+    let avatar = '';
+    let followers = '';
+
+    const url = 'https://api.github.com/users/hiteshchoudhary';
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('GET', url);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const data = JSON.parse(xhr.responseText);
+            avatar = data.avatar_url;
+            followers = data.followers;
+        }
+    };
+
+    xhr.send();
+
+    const squareContainer = document.querySelector('.square-container');
+    const follower = document.querySelector('.follower');
+    const showButton = document.querySelector('.show-button');
+
+    showButton.addEventListener('click', () => {
+        if (avatar && followers) {
+            squareContainer.innerHTML = `<img src="${avatar}" alt="avatar" style="width: 200px; height: 200px;">`;
+            follower.innerHTML = `<h2>Followers-${followers}</h2>`;
+        } 
+    });
+</script>
+
+
+</html>

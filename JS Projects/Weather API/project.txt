@@ -1,0 +1,22 @@
+This project is a Weather Webpage that allows users to retrieve current weather information for a specified city. 
+Users enter the name of a city, and the app displays the temperature, wind speed, and humidity. 
+
+
+
+Technologoies Used-
+
+-> HTML
+
+-> CSS
+
+-> JavaScript-
+
+Handles interactivity and API integration.
+Uses fetch() for making asynchronous API calls.
+
+
+-> OpenWeatherMap API
+Provides real-time weather data like temperature, wind speed, and humidity.
+
+-> Responsive Design Principles
+Ensures the app is functional across devices by using meta tags for viewport settings.
